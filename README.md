@@ -4,9 +4,9 @@ Grape Description Extender
 Overview
 --------
 
-[Grape]()のdesc blockで指定できるメソッド(=document)を拡張できます
+Extend the description block of the [Grape::API](https://github.com/intridea/grape)
 
-```
+```ruby
 class MyAPI < Grape::API
   desc "ping if" do
     detail "'pong' return every time"
@@ -23,7 +23,7 @@ class MyAPI < Grape::API
 end
 ```
 
-※通常はreq\_exampleとres\_exampleがNoMethodError
+In case of without the gem, `req_example` and `res_example` are raised NoMethodError.
 
 Getting start
 -------------
@@ -36,7 +36,7 @@ gem 'grape-desc-extender'
 
 Require and Configuration:
 
-```
+```ruby
 require 'grape'
 require 'grape/desc-extender'
 GrapeDescExtender.config.extend = [:req_example, :res_example]
@@ -44,7 +44,7 @@ GrapeDescExtender.config.extend = [:req_example, :res_example]
 
 Describe to your API:
 
-```
+```ruby
 class MyAPI < Grape::API
   desc "ping if" do
     detail "'pong' return every time"
@@ -69,6 +69,11 @@ You can get a value via `route_DESC` method:
 > MyAPI.routes[0].route_res_example
 => "{\"result\":\"pong\"}\n"
 ```
+
+Roadmap
+-------
+
+See issues.
 
 License
 --------
